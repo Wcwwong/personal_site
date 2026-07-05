@@ -1,0 +1,36 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import { formatDate } from "../../lib/content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Base title={`${post.data.title} | Willy W.`} description={post.data.description}>
+  <article>
+    <div class="page-hero">
+      <p class="kicker">writing</p>
+      <h1>{post.data.title}</h1>
+      <p class="detail-lede">{post.data.description}</p>
+      <div class="meta-line">{formatDate(post.data.pubDate)}</div>
+      <div class="post-tags">
+        {post.data.tags.map((tag) => <a class="tag-chip" href={`/blog/tag/${tag}/`}>{tag}</a>)}
+      </div>
+    </div>
+
+    <section aria-label="Post body">
+      <div class="prose">
+        <Content />
+      </div>
+    </section>
+  </article>
+</Base>

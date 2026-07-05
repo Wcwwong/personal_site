@@ -1,5 +1,8 @@
 ---
 import Base from "../layouts/Base.astro";
+import { getProjects, projectStatusLabel, stackLine } from "../lib/content";
+
+const projects = await getProjects();
 ---
 
 <Base
@@ -8,10 +11,28 @@ import Base from "../layouts/Base.astro";
 >
   <div class="page-hero">
     <p class="kicker">projects</p>
-    <h1>Portfolio &mdash; full listing coming soon.</h1>
+    <h1>Portfolio</h1>
     <p>
-      Phase 2 will replace this stub with markdown-backed project entries. The first version will
-      keep each write-up sanitized, concrete, and evidence-led.
+      Sanitized project write-ups, kept concrete and evidence-led. Real content will expand in
+      Phase C after curation.
     </p>
   </div>
+
+  <section aria-labelledby="project-list-title">
+    <div class="sec-head">
+      <h2 id="project-list-title">Projects</h2>
+    </div>
+    <div class="cards">
+      {
+        projects.map((project) => (
+          <a class="card" href={`/projects/${project.id}/`}>
+            <span class={`chip ${project.data.status}`}>{projectStatusLabel(project)}</span>
+            <h3>{project.data.title}</h3>
+            <p>{project.data.summary}</p>
+            <div class="stack">{stackLine(project.data.stack)}</div>
+          </a>
+        ))
+      }
+    </div>
+  </section>
 </Base>

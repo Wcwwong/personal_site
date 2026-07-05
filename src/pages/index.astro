@@ -1,5 +1,15 @@
 ---
 import Base from "../layouts/Base.astro";
+import {
+  formatMonth,
+  getFeaturedProjects,
+  getLatestPosts,
+  projectStatusLabel,
+  stackLine,
+} from "../lib/content";
+
+const featuredProjects = await getFeaturedProjects();
+const latestPosts = await getLatestPosts(3);
 ---
 
 <Base
@@ -28,33 +38,16 @@ import Base from "../layouts/Base.astro";
       <a href="/projects">all &rarr;</a>
     </div>
     <div class="cards">
-      <article class="card">
-        <span class="chip active">ACTIVE</span>
-        <h3>Spot Grid Trading Bot</h3>
-        <p>
-          A Python grid-trading bot with a safety-first design: testnet-first rollout,
-          sign-only wallet permissions, and a standalone risk engine.
-        </p>
-        <div class="stack">python &middot; exchange-api &middot; risk-engine</div>
-      </article>
-      <article class="card">
-        <span class="chip active">ACTIVE</span>
-        <h3>Agentic Knowledge Pipeline</h3>
-        <p>
-          A daily automated pipeline where multiple AI agents ingest, process, and file
-          research into a structured Obsidian vault.
-        </p>
-        <div class="stack">multi-agent &middot; obsidian &middot; scheduling</div>
-      </article>
-      <article class="card">
-        <span class="chip shelved">SHELVED &middot; BY DATA</span>
-        <h3>Prediction-Market Backtester</h3>
-        <p>
-          Built a weather-market strategy tester, ran a pre-registered experiment on ~170
-          paper trades &mdash; and killed the strategy when the data said no.
-        </p>
-        <div class="stack">python &middot; statistics &middot; honesty</div>
-      </article>
+      {
+        featuredProjects.map((project) => (
+          <a class="card" href={`/projects/${project.id}/`}>
+            <span class={`chip ${project.data.status}`}>{projectStatusLabel(project)}</span>
+            <h3>{project.data.title}</h3>
+            <p>{project.data.summary}</p>
+            <div class="stack">{stackLine(project.data.stack)}</div>
+          </a>
+        ))
+      }
     </div>
   </section>
 
@@ -64,18 +57,14 @@ import Base from "../layouts/Base.astro";
       <a href="/blog">all posts &rarr;</a>
     </div>
     <div class="posts">
-      <div class="post">
-        <a href="/blog">How I run a two-AI dev team: Codex builds, Claude reviews</a>
-        <time datetime="2026-07">2026-07</time>
-      </div>
-      <div class="post">
-        <a href="/blog">Killing my own strategy: what a negative result taught me</a>
-        <time datetime="2026-06">2026-06</time>
-      </div>
-      <div class="post">
-        <a href="/blog">My Obsidian + Claude knowledge pipeline, end to end</a>
-        <time datetime="2026-06">2026-06</time>
-      </div>
+      {
+        latestPosts.map((post) => (
+          <div class="post">
+            <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+            <time datetime={formatMonth(post.data.pubDate)}>{formatMonth(post.data.pubDate)}</time>
+          </div>
+        ))
+      }
     </div>
   </section>
 

@@ -1,0 +1,33 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import { projectStatusLabel, stackLine } from "../../lib/content";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects", ({ data }) => !data.draft);
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+
+<Base title={`${project.data.title} | Willy W.`} description={project.data.summary}>
+  <article>
+    <div class="page-hero">
+      <span class={`chip ${project.data.status}`}>{projectStatusLabel(project)}</span>
+      <h1>{project.data.title}</h1>
+      <p class="detail-lede">{project.data.summary}</p>
+      <div class="meta-line">{stackLine(project.data.stack)}</div>
+    </div>
+
+    <section aria-label="Project write-up">
+      <div class="prose">
+        <Content />
+      </div>
+    </section>
+  </article>
+</Base>

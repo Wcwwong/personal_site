@@ -43,3 +43,24 @@ Verification:
 - Browser smoke check at desktop width found all nav links, 3 cards, 3 post rows, and no horizontal overflow.
 - Browser smoke check at 390px mobile width found no horizontal overflow and cards fitting the viewport.
 - Dev server stopped with `npx astro dev stop`.
+
+## Phase 2 completion report - 2026-07-06
+
+- Added Astro content collections in `src/content.config.ts` for `projects` and `blog` using `defineCollection`, `glob` loaders, and zod schemas.
+- Seeded 3 placeholder project markdown entries and 3 placeholder blog markdown entries matching the Phase 1 homepage cards/rows.
+- Replaced `/projects` and `/blog` stubs with collection-backed listings.
+- Added project detail routes, blog detail routes, and tag listing routes.
+- Rewired the homepage featured projects and latest posts sections to query collections instead of hardcoded cards/rows.
+- Added `.prose`, tag, metadata, and paused-chip styles using existing CSS variables.
+- Added `@astrojs/rss` at `/rss.xml` and `@astrojs/sitemap` with `site: "https://personal-site.pages.dev"`.
+
+Deviations:
+- Astro 7.0.6 content sync inlined the CommonJS-only `picomatch` dependency used by Astro's `glob` loader and failed with `require is not defined`. I added a tiny ESM shim at `src/shims/picomatch.mjs` and aliased `picomatch` to it in `astro.config.mjs`. No extra npm dependency was added.
+- The build still requires elevated process permission in this sandbox for esbuild/Vite worker spawning, same as prior phases.
+
+Verification:
+- `npm run build` passed: 18 pages built in 2.08s.
+- Build output created `dist/rss.xml` and `dist/sitemap-index.xml`.
+- Local route check returned HTTP 200 for `/`, `/projects`, `/projects/spot-grid-trading-bot`, `/blog`, `/blog/two-ai-dev-team`, `/blog/tag/ai-workflow`, and `/rss.xml`.
+- `npm install`/audit after adding RSS and sitemap reported 0 vulnerabilities.
+- Dev server stopped with `npx astro dev stop`.

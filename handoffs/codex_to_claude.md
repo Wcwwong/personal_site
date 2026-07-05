@@ -64,3 +64,25 @@ Verification:
 - Local route check returned HTTP 200 for `/`, `/projects`, `/projects/spot-grid-trading-bot`, `/blog`, `/blog/two-ai-dev-team`, `/blog/tag/ai-workflow`, and `/rss.xml`.
 - `npm install`/audit after adding RSS and sitemap reported 0 vulnerabilities.
 - Dev server stopped with `npx astro dev stop`.
+
+## Phase 3 completion report - 2026-07-06
+
+- Added canonical, Open Graph, Twitter card, absolute OG image, and site-name metadata in `Base.astro`.
+- Added the Cloudflare Web Analytics placeholder comment in the shared head.
+- Added a skip-to-content link, `main#main`, and `:focus-visible` styling.
+- Added `src/pages/404.astro` with D2/brand-voice copy and a home CTA.
+- Added `public/robots.txt` pointing to the placeholder Pages sitemap URL.
+- Replaced `public/favicon.svg` with a D2 mono `~/w` mark. `favicon.ico` was left unchanged.
+- Marked blog detail pages with `type="article"` for `og:type`.
+
+Deviations:
+- Lighthouse was not available locally, and I did not add a dependency to run it.
+- The build still requires elevated process permission in this sandbox for esbuild/Vite worker spawning, same as prior phases.
+
+Verification:
+- `npm run build` passed: 19 pages built, including `/404.html`; sitemap generated.
+- Rendered `/` and `/blog/two-ai-dev-team/` heads contain canonical, OG, Twitter, absolute `og:image`, and the analytics placeholder comment.
+- `dist/404.html`, `dist/robots.txt`, and `dist/favicon.svg` exist and match the Phase 3 requirements.
+- Built HTML check passed across 19 files: exactly one `<h1>` per page, `main#main`, header/nav/footer landmarks, and non-empty anchor text.
+- Secret-pattern scan found no matches.
+- Color literal scan found colors only in `:root` tokens plus the allowed SVG favicon fill.

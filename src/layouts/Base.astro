@@ -4,11 +4,15 @@ import "../styles/global.css";
 interface Props {
   title?: string;
   description?: string;
+  type?: "website" | "article";
+  ogImage?: string;
 }
 
 const {
   title = "Willy W.",
   description = "I build real systems with AI as a one-person engineering team.",
+  type = "website",
+  ogImage = "/og-default.png",
 } = Astro.props;
 
 const navItems = [
@@ -21,6 +25,8 @@ const navItems = [
 ];
 
 const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const ogImageUrl = new URL(ogImage, Astro.site).toString();
 ---
 
 <!doctype html>
@@ -32,9 +38,22 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:site_name" content="Willy W." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <!-- Cloudflare Web Analytics: paste beacon snippet here after first deploy (token from CF dashboard) -->
     <title>{title}</title>
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="wrap">
         <nav class="site-nav" aria-label="Primary navigation">
@@ -55,7 +74,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
       </div>
     </header>
 
-    <main class="site-main wrap">
+    <main class="site-main wrap" id="main">
       <slot />
     </main>
 

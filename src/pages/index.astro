@@ -6,14 +6,93 @@ import Base from "../layouts/Base.astro";
   title="Willy W. | AI-Native Builder"
   description="I build real systems with AI as a one-person engineering team."
 >
-  <section class="hero" aria-labelledby="hero-title">
+  <div class="hero" aria-labelledby="hero-title">
     <p class="kicker">whoami</p>
     <h1 id="hero-title">
       I build real systems with AI &mdash; <em>as a one-person engineering team.</em>
     </h1>
     <p>
-      Claude helps me architect and review. Codex helps me build. Obsidian keeps the memory.
-      The result is a practical, AI-native workflow for shipping useful systems.
+      Trading bots, research pipelines, and automation &mdash; designed, built, and shipped by
+      orchestrating Claude, Codex, and Obsidian. Not a traditional developer; proof of what one
+      motivated person can ship with today's AI tools.
     </p>
+    <div class="cta">
+      <a class="btn btn-primary" href="/projects">See my projects</a>
+      <a class="btn btn-ghost" href="/about">How I work with AI &rarr;</a>
+    </div>
+  </div>
+
+  <section aria-labelledby="projects-title">
+    <div class="sec-head">
+      <h2 id="projects-title">Active projects</h2>
+      <a href="/projects">all &rarr;</a>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="chip active">ACTIVE</span>
+        <h3>Spot Grid Trading Bot</h3>
+        <p>
+          A Python grid-trading bot with a safety-first design: testnet-first rollout,
+          sign-only wallet permissions, and a standalone risk engine.
+        </p>
+        <div class="stack">python &middot; exchange-api &middot; risk-engine</div>
+      </article>
+      <article class="card">
+        <span class="chip active">ACTIVE</span>
+        <h3>Agentic Knowledge Pipeline</h3>
+        <p>
+          A daily automated pipeline where multiple AI agents ingest, process, and file
+          research into a structured Obsidian vault.
+        </p>
+        <div class="stack">multi-agent &middot; obsidian &middot; scheduling</div>
+      </article>
+      <article class="card">
+        <span class="chip shelved">SHELVED &middot; BY DATA</span>
+        <h3>Prediction-Market Backtester</h3>
+        <p>
+          Built a weather-market strategy tester, ran a pre-registered experiment on ~170
+          paper trades &mdash; and killed the strategy when the data said no.
+        </p>
+        <div class="stack">python &middot; statistics &middot; honesty</div>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="writing-title">
+    <div class="sec-head">
+      <h2 id="writing-title">Writing</h2>
+      <a href="/blog">all posts &rarr;</a>
+    </div>
+    <div class="posts">
+      <div class="post">
+        <a href="/blog">How I run a two-AI dev team: Codex builds, Claude reviews</a>
+        <time datetime="2026-07">2026-07</time>
+      </div>
+      <div class="post">
+        <a href="/blog">Killing my own strategy: what a negative result taught me</a>
+        <time datetime="2026-06">2026-06</time>
+      </div>
+      <div class="post">
+        <a href="/blog">My Obsidian + Claude knowledge pipeline, end to end</a>
+        <time datetime="2026-06">2026-06</time>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="toolkit-title">
+    <div class="toolkit">
+      <div>
+        <h3 id="toolkit-title">The AI Toolkit</h3>
+        <p>
+          The exact stack and division of labor I use &mdash; and why it minimizes
+          hallucination while maximizing shipping speed.
+        </p>
+        <div class="pipe">
+          claude <span>(architect/review)</span> &rarr; codex <span>(build)</span> &rarr;
+          obsidian <span>(memory)</span>
+        </div>
+      </div>
+      <a class="btn btn-ghost" href="/toolkit">Explore &rarr;</a>
+    </div>
   </section>
 </Base>

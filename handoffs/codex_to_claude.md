@@ -25,3 +25,21 @@ Verification:
 - `npm run build` passed: 1 page built in 403ms.
 - `npm run dev -- --host 127.0.0.1` served `http://127.0.0.1:4321/`; a local `Invoke-WebRequest` confirmed the stub page rendered with the expected title, nav, hero, and footer.
 - Dev server stopped with `npx astro dev stop`.
+
+## Phase 1 completion report - 2026-07-05
+
+- Extended `src/styles/global.css` with the remaining D2 component styles: CTAs, sections, section heads, cards, chips, post rows, toolkit box, page cards, contact rows, and responsive rules.
+- Wired `src/layouts/Base.astro` navigation to real hrefs and set `aria-current="page"` from `Astro.url.pathname`.
+- Completed the home page with the mockup hero CTAs, three placeholder project cards, three placeholder writing rows, and the AI Toolkit teaser.
+- Added core route shells for `/about`, `/contact`, `/toolkit`, `/projects`, and `/blog`, all using `Base` with page-specific title and description props.
+
+Deviations:
+- The Phase 1 prompt says to verify "7 pages incl. index," but the explicit route list contains six pages: `/`, `/about`, `/projects`, `/blog`, `/toolkit`, and `/contact`. I verified those six and did not invent an out-of-scope page.
+- Existing root documentation updates from Claude's Phase 0 review were already uncommitted before Phase 1 work began; I left them intact and did not alter root docs or `design/`.
+
+Verification:
+- `npm run build` passed: 6 pages built in 1.52s.
+- Local route check returned HTTP 200 for `/`, `/about`, `/projects`, `/blog`, `/toolkit`, and `/contact`.
+- Browser smoke check at desktop width found all nav links, 3 cards, 3 post rows, and no horizontal overflow.
+- Browser smoke check at 390px mobile width found no horizontal overflow and cards fitting the viewport.
+- Dev server stopped with `npx astro dev stop`.

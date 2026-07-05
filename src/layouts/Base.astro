@@ -11,7 +11,16 @@ const {
   description = "I build real systems with AI as a one-person engineering team.",
 } = Astro.props;
 
-const navItems = ["Home", "About", "Projects", "Blog", "AI Toolkit", "Contact"];
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Projects", href: "/projects" },
+  { label: "Blog", href: "/blog" },
+  { label: "AI Toolkit", href: "/toolkit" },
+  { label: "Contact", href: "/contact" },
+];
+
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 ---
 
 <!doctype html>
@@ -29,12 +38,15 @@ const navItems = ["Home", "About", "Projects", "Blog", "AI Toolkit", "Contact"];
     <header class="site-header">
       <div class="wrap">
         <nav class="site-nav" aria-label="Primary navigation">
-          <a class="site-logo" href="#">~/willy</a>
+          <a class="site-logo" href="/">~/willy</a>
           <div class="nav-links">
             {
               navItems.map((item) => (
-                <a href="#" aria-current={item === "Home" ? "page" : undefined}>
-                  {item}
+                <a
+                  href={item.href}
+                  aria-current={currentPath === item.href ? "page" : undefined}
+                >
+                  {item.label}
                 </a>
               ))
             }

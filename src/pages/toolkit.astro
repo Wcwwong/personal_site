@@ -1,0 +1,46 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base
+  title="AI Toolkit | Willy W."
+  description="The AI tools Willy W. uses to plan, build, review, and remember work."
+>
+  <div class="page-hero">
+    <p class="kicker">toolkit</p>
+    <h1>The tools are not the story. The workflow is.</h1>
+    <p>
+      This page will become a practical map of how I divide work between models, tools, and
+      durable notes. For now, it keeps the structure ready.
+    </p>
+  </div>
+
+  <section aria-labelledby="tool-list-title">
+    <div class="sec-head">
+      <h2 id="tool-list-title">Stack</h2>
+    </div>
+    <div class="page-stack">
+      <article class="page-card">
+        <h3>Claude</h3>
+        <p>
+          Used for architecture, critique, review, and judgment-heavy planning. The job is to
+          make the plan sharper before code exists.
+        </p>
+      </article>
+      <article class="page-card">
+        <h3>Codex</h3>
+        <p>
+          Used for implementation, verification, and local iteration. The job is to turn a scoped
+          prompt into working files and repeatable checks.
+        </p>
+      </article>
+      <article class="page-card">
+        <h3>Obsidian</h3>
+        <p>
+          Used as project memory. Decisions, notes, and handoffs live outside chat so the next
+          session starts from facts, not vibes.
+        </p>
+      </article>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,62 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Willy W.",
+  description = "I build real systems with AI as a one-person engineering team.",
+} = Astro.props;
+
+const navItems = ["Home", "About", "Projects", "Blog", "AI Toolkit", "Contact"];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a class="site-logo" href="#">~/willy</a>
+          <div class="nav-links">
+            {
+              navItems.map((item) => (
+                <a href="#" aria-current={item === "Home" ? "page" : undefined}>
+                  {item}
+                </a>
+              ))
+            }
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="site-main wrap">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-row">
+        <span>&copy; 2026 Willy W.</span>
+        <div class="footer-links">
+          <a href="#">GitHub</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">Email</a>
+          <a href="#">RSS</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

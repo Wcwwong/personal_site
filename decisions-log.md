@@ -50,3 +50,18 @@
   rule intact. Placeholder copy written in brand voice. Independent build: 6 pages, clean.
 - Codex correctly flagged Claude's "7 pages" as a count error (6 routes) instead of inventing a
   page — exactly the right behavior under strict scoping.
+
+## 2026-07-06 — Phase 2 review (Claude): ACCEPTED
+
+- Codex commit `846403a` accepted: `projects` + `blog` collections with zod schemas exactly per
+  spec, 3+3 seeded placeholder entries, listing/detail/tag routes, homepage rewired to queries,
+  `/rss.xml` + sitemap. Independent build: 18 pages + rss.xml + sitemap-index.xml. Hex colors
+  still only in `:root`.
+- **Deviation accepted: `src/shims/picomatch.mjs` + vite alias** — works around an Astro 7.0.6
+  ESM/CJS bundling bug (`require is not defined` from the glob loader). The shim loads the REAL
+  picomatch via `createRequire` and re-exports it; zero behavior change, zero new deps.
+  **Removal note:** when upgrading Astro, try deleting the shim + alias first — the upstream bug
+  will likely be fixed.
+- Convention for Phase C content: **blog tags must be kebab-case / URL-safe** (tag URLs are built
+  as `/blog/tag/<tag>/` with no slugification).
+- Claude generated `public/og-default.png` (1200×630, D2 tokens, System.Drawing) — Phase 3 wires it.

@@ -2,7 +2,54 @@
 
 ---
 
-## PHASE 2 — Content collections (2026-07-05) — STATUS: READY TO RUN
+## PHASE 3 — Polish: SEO, 404, a11y (2026-07-06) — STATUS: READY TO RUN
+
+**Do Phase 3 and ONLY Phase 3. No deployment, no git push, no real biographical content,
+no new npm dependencies at all. One clean commit at the end.**
+
+### Tasks (exactly these)
+
+1. **SEO/social meta in `src/layouts/Base.astro`**:
+   - canonical `<link>` built from `Astro.site` + `Astro.url.pathname`;
+   - Open Graph: `og:title`, `og:description`, `og:type` (new optional prop `type`, default
+     `"website"`; blog post pages pass `"article"`), `og:url` (canonical), `og:image` — new
+     optional prop `ogImage` defaulting to `/og-default.png` (**the file already exists in
+     `public/` — do not regenerate it**), plus `og:site_name`;
+   - Twitter: `twitter:card` = `summary_large_image`, `twitter:title`, `twitter:description`,
+     `twitter:image`.
+   - Absolute URLs for og:image/og:url (use `new URL(..., Astro.site)`).
+2. **404 page** (`src/pages/404.astro`): brand voice, mono kicker (e.g. `$ ls: no such route`),
+   link back home. Style with existing tokens/classes only.
+3. **`public/robots.txt`**: allow all, `Sitemap:` line pointing at `<site>/sitemap-index.xml`.
+4. **Favicon**: replace `public/favicon.svg` with a simple D2-brand mark — mono `~/w` text,
+   `--ink` color (hardcode `#18181b` inside the SVG file only; SVGs are outside the CSS-variable
+   rule), transparent background. Keep favicon.ico as is.
+5. **Accessibility pass**:
+   - "Skip to content" link as first focusable element, visually hidden until focused; `<main>`
+     gets `id="main"`;
+   - visible `:focus-visible` outline style using `--accent` in `global.css`;
+   - verify exactly one `<h1>` per page, landmarks are sane, every `<a>` has discernible text.
+6. **Analytics placeholder**: HTML comment in Base `<head>`:
+   `<!-- Cloudflare Web Analytics: paste beacon snippet here after first deploy (token from CF dashboard) -->`.
+7. Verify `npm run build` passes; spot-check rendered `<head>` of `/` and one blog post in `dist/`
+   for canonical + OG tags; confirm 404.html emitted.
+8. Single commit: `phase 3: seo/og meta, 404, robots, favicon, a11y`. **No push.** Leave any
+   uncommitted root .md docs out of your commit.
+9. Append completion report to `handoffs/codex_to_claude.md`. If you have a Lighthouse-capable
+   browser available, run it against the local build and report scores; if not, say so — Claude
+   verifies Lighthouse post-deploy.
+
+### Explicitly out of scope (do NOT do)
+
+- No deploy config, no GitHub remote, no push, no analytics beacon/token (comment only).
+- No new dependencies. No OG image generation (asset exists). No content changes in `src/content/`.
+- No changes to root .md docs, `design/`, or `handoffs/claude_to_codex.md`.
+
+Claude will review the diff before the commit is accepted.
+
+---
+
+## PHASE 2 — Content collections (2026-07-05) — STATUS: ✅ DONE, ACCEPTED (commit 846403a; picomatch shim deviation accepted, see decisions-log)
 
 **Do Phase 2 and ONLY Phase 2. No OG images, no analytics, no 404 page, no deployment, no real
 biographical content, no git push. One clean commit at the end.**

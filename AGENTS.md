@@ -14,7 +14,7 @@ free tier (`*.pages.dev` now; real domain later).
 ## Layout
 
 ```
-personal-site/            ← nested git repo (parent <local-workspace> is ALSO a repo — never commit to parent)
+personal-site/            ← standalone git repo (parent dir has a stale .git entry but is NOT a working repo — never run git against the parent anyway)
 ├── AGENTS.md             ← this file
 ├── STATUS.md             ← live state: current phase, next step, open user actions
 ├── brand-guide.md        ← positioning, voice, D2 design tokens + "options kept open" legacy notes

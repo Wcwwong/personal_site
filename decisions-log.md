@@ -28,3 +28,25 @@
    pattern from the weather-backtest project.
 10. **Shelved weather project is framed as a strength** on the site (pre-registered experiment,
     negative result, killed honestly) — agreed positioning, don't soften or hide it.
+
+## 2026-07-05 — Phase 0 review (Claude): ACCEPTED
+
+- Codex commit `ba2bfa2` accepted after review: tokens match brand-guide exactly, all styling via
+  CSS variables (D1 dark swap preserved), scope respected, one clean commit, build verified
+  independently by Claude.
+- **Deviation accepted: Astro 7 (^7.0.6), not Astro 5** as originally specced — `create astro@latest`
+  installs the current major. Content collections + i18n unaffected. Treat Astro 7 as the baseline
+  from here; don't downgrade.
+- **Finding: parent dir `<local-workspace>` is NOT a functioning git repo** (has a `.git`
+  entry but `git status` says "not a git repository"). The nested-repo concern is moot;
+  personal-site is effectively a standalone repo. Still never run git against the parent.
+- Requires Node >= 22.12.0 (package.json engines) — verified working on this machine.
+
+## 2026-07-05 — Phase 1 review (Claude): ACCEPTED
+
+- Codex commit `62d272f` accepted: homepage matches D2 mockup (hero CTAs, 3 project cards, 3 post
+  rows, toolkit teaser), nav wired with `aria-current` from `Astro.url.pathname`, new pages
+  /about /contact /toolkit + /projects /blog stubs. Hex colors exist ONLY in `:root` — dark-swap
+  rule intact. Placeholder copy written in brand voice. Independent build: 6 pages, clean.
+- Codex correctly flagged Claude's "7 pages" as a count error (6 routes) instead of inventing a
+  page — exactly the right behavior under strict scoping.

@@ -4,20 +4,19 @@ _Last updated: 2026-07-05 (Claude Fable 5)_
 
 ## Current phase
 
-**Phase D complete → Phase 0 ready to run.**
+**Phase 1 accepted → Phase 2 ready to run.**
 
-- ✅ Brief locked (see decisions-log.md #1–#10)
-- ✅ Design chosen: **D2 hybrid-light** (`design/d2-hybrid-light.html`); tokens locked in brand-guide.md;
-  D1 dark reserved as future option (token swap only)
-- ✅ Legacy files created (AGENTS.md / brand-guide.md / decisions-log.md / this file)
-- ✅ Phase 0 Codex prompt written: `handoffs/claude_to_codex.md`
-- ⬜ Phase 0: Codex scaffold (Astro + Tailwind + base layout) — **next step: Willy runs Codex on the
-  Phase 0 prompt**, then Claude reviews the diff before the commit is accepted
-- ⬜ Phases 1–3, C: see task plan in AGENTS.md
+- ✅ Brief locked (decisions-log.md #1–#10); design = D2 hybrid-light, D1 dark reserved
+- ✅ Phase 0 (`ba2bfa2`) + Phase 1 (`62d272f`) done by Codex, **reviewed + accepted by Claude**
+  (independent builds passed — see decisions-log review entries)
+- ✅ Site has 6 working routes with full D2 design system; content is placeholder
+- ✅ Phase 2 Codex prompt written: `handoffs/claude_to_codex.md` (content collections, RSS, sitemap)
+- ⬜ Phase 2: **next step — Willy runs Codex on the Phase 2 prompt**, then Claude reviews
+- ⬜ Phase 3, C: see task plan in AGENTS.md
 
 ## Open user actions (Willy)
 
-1. Run Codex with the Phase 0 prompt (`handoffs/claude_to_codex.md`).
+1. Run Codex with the Phase 2 prompt (`handoffs/claude_to_codex.md`).
 2. When ready to deploy (Phase 3): create/confirm GitHub repo (public vs private — his call) and a
    free Cloudflare account; connect Pages to the repo.
 3. Approve the public display name (currently placeholder "Willy W.") before any content publishes.

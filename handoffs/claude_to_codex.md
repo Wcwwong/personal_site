@@ -2,7 +2,8 @@
 
 ---
 
-## PHASE 3 — Polish: SEO, 404, a11y (2026-07-06) — STATUS: READY TO RUN
+## PHASE 3 — Polish: SEO, 404, a11y (2026-07-06) — STATUS: ✅ DONE, ACCEPTED (commit 04ed25c)
+### No further Codex phase is queued. Phase C (content) runs Claude+Willy side; a small Codex phase may follow post-deploy (analytics beacon + final site URL).
 
 **Do Phase 3 and ONLY Phase 3. No deployment, no git push, no real biographical content,
 no new npm dependencies at all. One clean commit at the end.**

@@ -65,3 +65,16 @@
 - Convention for Phase C content: **blog tags must be kebab-case / URL-safe** (tag URLs are built
   as `/blog/tag/<tag>/` with no slugification).
 - Claude generated `public/og-default.png` (1200×630, D2 tokens, System.Drawing) — Phase 3 wires it.
+
+## 2026-07-06 — Phase 3 review (Claude): ACCEPTED
+
+- Codex commit `04ed25c` accepted: canonical + OG + Twitter meta with absolute URLs, og:type
+  article on blog posts, 404 page in brand voice, robots.txt → sitemap, D2 `~/w` favicon,
+  skip-link + `:focus-visible` a11y pass, analytics placeholder comment. Independent build:
+  19 pages; canonical/og:image/twitter:card verified in built HTML.
+- Codex self-audited beyond spec (single-h1 check across all pages, landmark check, secret-pattern
+  scan, color-literal scan) — all clean.
+- **Lighthouse deferred to post-deploy** (no local runner; no dependency added, correctly). Claude
+  runs it against the live pages.dev URL after first deploy.
+- Build phase complete. Remaining: Phase C (curated content with Willy) + first deploy
+  (GitHub repo + Cloudflare Pages + analytics beacon + real `site` URL).

@@ -6,23 +6,26 @@ _Last updated: 2026-07-05 (Claude Fable 5)_
 
 **Phases 0–3 ALL ACCEPTED — build complete. Next: Phase C (content) + first deploy.**
 
-- ✅ Phases 0–3 done by Codex (`ba2bfa2`, `62d272f`, `846403a`, `04ed25c`), all **reviewed +
+- ✅ Phases 0–3 done by Codex (`a5f3707`, `bf7f40e`, `9fa9ad1`, `fa6ebc3`), all **reviewed +
   accepted by Claude** with independent builds (see decisions-log review entries)
 - ✅ Site: 19 routes, collections-backed projects/blog + tags, RSS, sitemap, full SEO/OG meta,
   404, a11y pass, brand favicon + OG image. All content is still PLACEHOLDER.
-- ⬜ **Phase C** (Claude + Willy): real bio, project write-ups, first post, toolkit page —
-  everything passes Willy's curation gate before commit
-- ⬜ **First deploy** after Phase C (or before, with placeholders, if Willy wants the URL early)
-- ⬜ Post-deploy: paste CF analytics beacon, set real `site` in astro.config.mjs + robots.txt,
-  run Lighthouse (target ≥90 all categories)
+- 🟡 **Phase C content DRAFTED, sitting UNCOMMITTED in the working tree** (2 real blog posts,
+  3 project write-ups, About/Toolkit/Contact real copy, footer links wired, 3rd post `draft: true`).
+  Build clean (18 pages). **Waiting on Willy to read the posts + approve the curation checklist**
+  (name "Willy W.", email wcwwong.ucd@gmail.com, GitHub handle wcwwong, self-description,
+  Hyperliquid/Polymarket facts). Content is editable anytime post-launch — it's all markdown.
+- ⬜ **First deploy**: full runbook in `DEPLOY.md`. Blocked on Willy: GitHub repo + Cloudflare
+  account. Push happens only after curation approval + explicit confirm.
+- ⬜ Post-deploy wiring + Lighthouse: see DEPLOY.md steps 4–5.
+- ⬜ LinkedIn URL from Willy → contact page + footer.
 
 ## Open user actions (Willy)
 
-1. Phase C inputs: approve display name (placeholder "Willy W."), provide/approve bio facts,
-   GitHub + LinkedIn + contact email to show publicly.
-2. Deploy prerequisites: GitHub repo (public vs private — his call) + free Cloudflare account;
-   connect Pages to the repo. Willy confirms before anything is pushed.
-3. Domain decision stays open; placeholder `personal-site.pages.dev` in config + robots.txt.
+1. Read the two blog posts + curation checklist → approve or correct (gates the Phase C commit).
+2. Create GitHub repo (public) + free Cloudflare account (DEPLOY.md prerequisites).
+3. Send LinkedIn profile URL when ready.
+4. Domain decision stays open; placeholder `personal-site.pages.dev` in config + robots.txt.
 
 ## Notes for successor agents
 

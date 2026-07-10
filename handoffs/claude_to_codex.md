@@ -2,7 +2,7 @@
 
 ---
 
-## PHASE 3 — Polish: SEO, 404, a11y (2026-07-06) — STATUS: ✅ DONE, ACCEPTED (commit 04ed25c)
+## PHASE 3 — Polish: SEO, 404, a11y (2026-07-06) — STATUS: ✅ DONE, ACCEPTED (commit fa6ebc3)
 ### No further Codex phase is queued. Phase C (content) runs Claude+Willy side; a small Codex phase may follow post-deploy (analytics beacon + final site URL).
 
 **Do Phase 3 and ONLY Phase 3. No deployment, no git push, no real biographical content,
@@ -50,7 +50,7 @@ Claude will review the diff before the commit is accepted.
 
 ---
 
-## PHASE 2 — Content collections (2026-07-05) — STATUS: ✅ DONE, ACCEPTED (commit 846403a; picomatch shim deviation accepted, see decisions-log)
+## PHASE 2 — Content collections (2026-07-05) — STATUS: ✅ DONE, ACCEPTED (commit 9fa9ad1; picomatch shim deviation accepted, see decisions-log)
 
 **Do Phase 2 and ONLY Phase 2. No OG images, no analytics, no 404 page, no deployment, no real
 biographical content, no git push. One clean commit at the end.**
@@ -105,7 +105,7 @@ Claude will review the diff before the commit is accepted.
 
 ---
 
-## PHASE 1 — Design system + core pages (2026-07-05) — STATUS: ✅ DONE, ACCEPTED (commit 62d272f)
+## PHASE 1 — Design system + core pages (2026-07-05) — STATUS: ✅ DONE, ACCEPTED (commit bf7f40e)
 
 **Do Phase 1 and ONLY Phase 1. No content collections, no RSS/sitemap/SEO beyond basic meta,
 no analytics, no deployment, no git push. One clean commit at the end.**
@@ -152,7 +152,7 @@ Claude will review the diff before the commit is accepted.
 
 ---
 
-## PHASE 0 — Scaffold (2026-07-05) — STATUS: ✅ DONE, ACCEPTED (commit ba2bfa2; Astro 7 deviation accepted)
+## PHASE 0 — Scaffold (2026-07-05) — STATUS: ✅ DONE, ACCEPTED (commit a5f3707; Astro 7 deviation accepted)
 
 **Do Phase 0 and ONLY Phase 0. Do not jump ahead to pages, content collections, styling beyond
 the base layout, analytics, or deployment. One clean commit at the end.**

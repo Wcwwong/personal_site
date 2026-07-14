@@ -10,7 +10,11 @@ _Last updated: 2026-07-05 (Claude Fable 5)_
   accepted by Claude** with independent builds (see decisions-log review entries)
 - ✅ Site: 19 routes, collections-backed projects/blog + tags, RSS, sitemap, full SEO/OG meta,
   404, a11y pass, brand favicon + OG image. All content is still PLACEHOLDER.
-- 🟡 **Phase C content DRAFTED, sitting UNCOMMITTED in the working tree** (2 real blog posts,
+- ✅ **Phase C content COMMITTED + PUSHED to github.com/Wcwwong/personal_site (2026-07-14)**.
+  4 posts (obsidian-pipeline + gates-shadows added; AI-telltale prose rewrite done, ≤1 em-dash/piece
+  per brand-guide voice rule), 3 project pages, About/Toolkit/Contact real copy. Pre-push sweep clean
+  (no personal email/keys/paths/financials). Next: Willy connects Cloudflare Pages (see DEPLOY.md).
+- 🟡 (historical) Phase C content was drafted uncommitted (2 real blog posts,
   3 project write-ups, About/Toolkit/Contact real copy, footer links wired, 3rd post `draft: true`).
   Build clean (18 pages). **Waiting on Willy to read the posts + approve the curation checklist**
   (name "Willy W.", email wcwwong.ucd@gmail.com, GitHub handle wcwwong, self-description,

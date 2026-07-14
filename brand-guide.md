@@ -19,6 +19,11 @@
 - Plain, confident, concrete. No hype words ("revolutionary", "passionate"), no emoji in body copy.
 - First person. Short sentences. Numbers over adjectives ("~170 paper trades", not "extensive testing").
 - Honest about being a non-traditional developer — that's the point, not a confession.
+- **No AI-telltale prose (Willy's rule, 2026-07-14).** Public content must read human-written:
+  at most ONE em dash per page/post (prefer commas, periods, parentheses, colons); no tidy
+  triadic parallelism everywhere; no "It's not X — it's Y" tic; no aphoristic punchline endings
+  stacked back to back. Vary sentence rhythm. This applies to ALL site copy, not just posts.
+  (Exception: the hero one-liner keeps its single em dash — it's on the OG image too.)
 
 ## Design direction: **D2 — Hybrid light** (chosen 2026-07-05)
 

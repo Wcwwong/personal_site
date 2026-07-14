@@ -4,14 +4,16 @@ import Base from "../layouts/Base.astro";
 
 <Base
   title="About | Willy W."
-  description="How Willy W. works with AI to build practical systems."
+  description="Who Willy W. is and how he builds real systems with an AI-native workflow."
 >
   <div class="page-hero">
     <p class="kicker">about</p>
     <h1>I use AI like a small engineering team, then make the work prove itself.</h1>
     <p>
-      This page will hold the real bio after curation. For now, it sketches the working model:
-      clear goals, tight feedback loops, and systems that earn trust through checks.
+      I'm Willy, a self-taught builder and retail trader. I don't come from a software
+      engineering background, and that's precisely what this site documents: what one
+      motivated person can design, build, and ship by working with AI tools seriously
+      instead of casually.
     </p>
   </div>
 
@@ -21,13 +23,46 @@ import Base from "../layouts/Base.astro";
     </div>
     <div class="page-card">
       <p>
-        Claude helps shape the architecture and review the result. Codex turns the plan into
-        working code. Obsidian keeps the durable memory so each pass starts with context.
+        Every system I ship goes through the same loop. Claude plans the architecture,
+        challenges my assumptions, and reviews every change. Codex builds, one strictly
+        scoped phase at a time, one clean commit each. Obsidian and plain markdown files
+        keep the durable memory: specs, decisions, and status live in the repo, so any
+        session (or any model) can pick up exactly where the last one stopped.
       </p>
       <div class="pipe">
         claude <span>(architect/review)</span> &rarr; codex <span>(build)</span> &rarr;
         obsidian <span>(memory)</span>
       </div>
+      <p>
+        The rules that make it work: two models so the author never reviews its own code,
+        pre-agreed scope so nothing gets "helpfully" over-built, and independent
+        verification so "it works" is demonstrated, not claimed. The full breakdown is in
+        <a href="/blog/two-ai-dev-team/">the write-up</a> and on the
+        <a href="/toolkit/">AI Toolkit</a> page.
+      </p>
+    </div>
+  </section>
+
+  <section aria-labelledby="principles-title">
+    <div class="sec-head">
+      <h2 id="principles-title">What I optimize for</h2>
+    </div>
+    <div class="page-card">
+      <p>
+        <strong>Evidence over conviction.</strong> My favorite project outcome so far is a
+        strategy I killed with a pre-registered experiment before it cost anything.
+        The <a href="/projects/prediction-market-backtester/">documented negative result</a>
+        taught me more than a lucky win would have.
+      </p>
+      <p>
+        <strong>Safety before capability.</strong> The trading systems I build get risk
+        engines, testnet-first rollouts, and keys that can't withdraw, so the worst case
+        is decided in advance instead of discovered in production.
+      </p>
+      <p>
+        <strong>Files over vibes.</strong> Decisions get written down with their
+        reasoning. Anything that matters survives the end of a chat session.
+      </p>
     </div>
   </section>
 
@@ -37,9 +72,12 @@ import Base from "../layouts/Base.astro";
     </div>
     <div class="page-card">
       <p>
-        The finished version will be specific and approved before publishing. The placeholder
-        version keeps the point simple: I learn by building, write down decisions, and keep
-        the evidence close to the work.
+        Markets are where I learned to respect data. I trade as a retail investor, and the
+        discipline that survives contact with a live market (position sizing, kill
+        criteria, honest postmortems) turns out to transfer directly to building
+        software with AI. If you want the specifics of what I've built, start with the
+        <a href="/projects/">projects</a>; if you want how I think, start with the
+        <a href="/blog/">writing</a>.
       </p>
     </div>
   </section>

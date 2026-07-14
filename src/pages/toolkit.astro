@@ -4,14 +4,15 @@ import Base from "../layouts/Base.astro";
 
 <Base
   title="AI Toolkit | Willy W."
-  description="The AI tools Willy W. uses to plan, build, review, and remember work."
+  description="The exact stack and division of labor Willy W. uses to build like a team: Claude architects and reviews, Codex builds, Obsidian remembers."
 >
   <div class="page-hero">
     <p class="kicker">toolkit</p>
     <h1>The tools are not the story. The workflow is.</h1>
     <p>
-      This page will become a practical map of how I divide work between models, tools, and
-      durable notes. For now, it keeps the structure ready.
+      Anyone can open a chat window. The difference between "AI-assisted" and shipping
+      real systems is structure: separated roles, strict scope, independent checks, and
+      memory that outlives the session. This is the exact setup I use.
     </p>
   </div>
 
@@ -21,24 +22,61 @@ import Base from "../layouts/Base.astro";
     </div>
     <div class="page-stack">
       <article class="page-card">
-        <h3>Claude</h3>
+        <h3>Claude: architect &amp; reviewer</h3>
         <p>
-          Used for architecture, critique, review, and judgment-heavy planning. The job is to
-          make the plan sharper before code exists.
+          Plans the system, writes the spec, and challenges my assumptions before code
+          exists. Then it reviews every diff after Codex writes it: scope adherence,
+          correctness, and an independent build. Claude never reviews code it wrote
+          itself; that's the whole point of having two models.
         </p>
       </article>
       <article class="page-card">
-        <h3>Codex</h3>
+        <h3>Codex: builder</h3>
         <p>
-          Used for implementation, verification, and local iteration. The job is to turn a scoped
-          prompt into working files and repeatable checks.
+          Takes one tightly scoped prompt at a time ("do X and ONLY X") and turns it into
+          working code with its own verification pass. One phase, one clean commit. The
+          strictness isn't distrust; it's what keeps every change reviewable.
         </p>
       </article>
       <article class="page-card">
-        <h3>Obsidian</h3>
+        <h3>Obsidian + markdown: memory</h3>
         <p>
-          Used as project memory. Decisions, notes, and handoffs live outside chat so the next
-          session starts from facts, not vibes.
+          Specs, decisions with their reasoning, status, and handoff notes live as plain
+          files in the repo and in a structured vault. Chat history is disposable; files
+          are not. Any new session, or an entirely different model, starts from facts.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="practices-title">
+    <div class="sec-head">
+      <h2 id="practices-title">The practices that make it work</h2>
+    </div>
+    <div class="page-stack">
+      <article class="page-card">
+        <h3>Strict phase scoping</h3>
+        <p>
+          Every build prompt defines exactly one phase and explicitly lists what is out of
+          scope. Eager models over-build; pre-agreed boundaries keep the diff small enough
+          to actually review.
+        </p>
+      </article>
+      <article class="page-card">
+        <h3>Independent verification</h3>
+        <p>
+          "Build passes" is a claim, not a fact — until the reviewer runs the build itself,
+          reads the diff, and greps for rule violations. Trust me becomes check me, and the
+          checks are cheap.
+        </p>
+      </article>
+      <article class="page-card">
+        <h3>File-based handoffs</h3>
+        <p>
+          Specs travel in one file, completion reports in another, both committed to git.
+          Either side of the workflow can be swapped for a newer model without losing the
+          project. This very site was built that way, and its
+          <a href="/blog/two-ai-dev-team/">commit history shows it</a>.
         </p>
       </article>
     </div>

@@ -1,0 +1,10 @@
+{
+  // Cloudflare Workers static-assets deploy for the Astro build.
+  // Used because this account no longer offers Cloudflare Pages project creation.
+  // No "main" field => assets-only Worker: every request is served from ./dist.
+  "name": "willy",
+  "compatibility_date": "2025-01-01",
+  "assets": {
+    "directory": "./dist"
+  }
+}

@@ -88,3 +88,16 @@
 - **GitHub repo: PUBLIC** — the phased commits + handoff files are themselves the brand story.
 - Process: Claude drafts content into the working tree UNCOMMITTED; Willy reviews rendered site;
   nothing commits until he approves (curation gate).
+
+## 2026-07-15 — Deploy path changed: Cloudflare Workers, not Pages
+
+- **Cloudflare has removed Pages project creation for Willy's account.** "Create application" and
+  the `/:account/pages/new` deep link both land on the Workers-only "Create a Worker" wizard; no
+  Pages tab exists. Verified by Willy via screenshots.
+- **Decision: deploy as a Workers static-assets site.** Added `wrangler.jsonc` (name `willy`,
+  `assets.directory: ./dist`, no `main` = assets-only Worker). Git-connected via "Continue with
+  GitHub" → build `npm run build` → `npx wrangler deploy`. Same $0 free tier (100k req/day).
+- **URL will be `willy.wcwwong.workers.dev`** after Willy renames the account workers.dev subdomain
+  from `ewrthk20` (personal Gmail handle — privacy) to `wcwwong`. Not as clean as the intended
+  `wcwwong.pages.dev`; custom domain later is the real fix (already planned).
+- Repo push already done (content + build). This just adds the deploy config.

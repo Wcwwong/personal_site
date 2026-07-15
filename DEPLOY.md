@@ -1,7 +1,29 @@
-# DEPLOY.md — first deploy runbook (Cloudflare Pages)
+# DEPLOY.md — first deploy runbook
 
 > Written pre-deploy so any agent/session can execute it with Willy. Deploying **publishes the
 > site and the repo publicly** — every step marked ⚠️ needs Willy's explicit go-ahead at that moment.
+
+## ⚠️ IMPORTANT (2026-07-15): this account has NO Cloudflare Pages
+
+Cloudflare removed standalone Pages project creation for Willy's account (the "Create application"
+button and the `/:account/pages/new` deep link both route to the Workers-only "Create a Worker"
+wizard). **We deploy as a Workers static site instead** — same free tier, same git auto-deploy.
+The repo now contains `wrangler.jsonc` (assets-only Worker serving `./dist`). The Pages-specific
+steps below (§3) are superseded by the "Workers deploy" section. Everything else still applies.
+
+### Workers deploy (the actual path)
+
+1. **Rename the workers.dev subdomain first.** Workers & Pages main page → Account Details →
+   pencil next to `ewrthk20.workers.dev` → change to `wcwwong`. (Default exposes Willy's personal
+   Gmail handle; must not be the public URL.)
+2. Create application → **Continue with GitHub** → authorize + select `Wcwwong/personal_site`.
+3. Confirm build settings: Build command `npm run build`, Deploy command `npx wrangler deploy`
+   (deploy reads `wrangler.jsonc`: name `willy`, assets `./dist`). Node ≥22.12 via `.nvmrc`.
+4. Deploy → live at `https://willy.wcwwong.workers.dev`.
+5. Post-deploy wiring + verification = same as §4–§5 below, but the URL is the workers.dev one,
+   and Cloudflare Web Analytics still works for Workers sites.
+
+Custom domain later makes the workers.dev URL irrelevant (see "Later").
 
 ## Prerequisites (Willy, one-time)
 

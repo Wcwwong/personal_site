@@ -9,8 +9,9 @@ const picomatchShim = fileURLToPath(new URL('./src/shims/picomatch.mjs', import.
 
 // https://astro.build/config
 export default defineConfig({
-  // TODO: replace with final domain
-  site: 'https://personal-site.pages.dev',
+  // Deployed as a Cloudflare Worker (this account has no Pages) — see DEPLOY.md.
+  // TODO: replace with a custom domain if/when Willy buys one.
+  site: 'https://willy.wcwwong.workers.dev',
   integrations: [sitemap()],
   vite: {
     resolve: {

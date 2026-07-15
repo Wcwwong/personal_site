@@ -5,6 +5,9 @@
   "name": "willy",
   "compatibility_date": "2025-01-01",
   "assets": {
-    "directory": "./dist"
+    "directory": "./dist",
+    // Without this, Workers assets return an empty body on unmatched paths
+    // instead of serving dist/404.html (verified 2026-07-16: 404 status, 0-byte body).
+    "not_found_handling": "404-page"
   }
 }

@@ -112,4 +112,5 @@
 - Positioning: deliberately different provider (Gemini vs Claude/Codex elsewhere) — framed as
   "pick the right tool, not vendor loyalty" per the multi-provider angle discussed with Willy.
 - Fixed stale copy on `/projects` hero ("Real content will expand in Phase C") — Phase C is done.
-- **UNCOMMITTED pending Willy's review** — curation gate applies to new content same as Phase C.
+- **PUSHED + LIVE (2026-07-17, commit b64ffbf)** after Willy's review. Verified on production:
+  project page renders, homepage stays 3 cards, /projects shows 4, stale copy confirmed gone.

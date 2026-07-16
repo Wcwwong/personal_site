@@ -1,8 +1,29 @@
 # STATUS — personal-site
 
-_Last updated: 2026-07-05 (Claude Fable 5)_
+_Last updated: 2026-07-17 (Claude Fable 5)_
 
-## Current phase
+## Current state: LIVE at https://willy.wcwwong.workers.dev
+
+- Deployed as a Cloudflare **Workers** static site (account has no Pages; see DEPLOY.md),
+  git-connected: push to master → auto-build → live in ~1-2 min.
+- Content live: 4 blog posts, 4 project pages (grid bot / knowledge pipeline / backtester /
+  trip bill splitter), About, Contact (email + GitHub live, LinkedIn pending), AI Toolkit
+  **including "The safety layer" section** (commit 1ca031d).
+- URL wiring done: canonical/OG/robots point at the real workers.dev URL; custom 404 works
+  (`not_found_handling: 404-page`); OG share image verified.
+- Prose rule in force: no AI-telltale patterns, ≤1 em dash per piece (brand-guide Voice).
+
+## Remaining (small)
+
+1. **Cloudflare Web Analytics**: Willy adds the site in CF dashboard → pastes beacon snippet
+   to Claude → goes into the placeholder comment in `src/layouts/Base.astro`.
+2. **Lighthouse** on the live URL after the beacon lands (target ≥90 all four categories).
+3. **LinkedIn URL** from Willy → contact page + footer.
+4. LinkedIn profile work: drafts at `~/.longbridge/linkedin-profile-drafts.md` (his side).
+5. Possible 5th project page: Market Monitoring Pipeline (cost-tiered, injection-defense angle).
+6. Custom domain later (any real domain attaches to the Worker; .sol can't be primary).
+
+## Historical phase log
 
 **Phases 0–3 ALL ACCEPTED — build complete. Next: Phase C (content) + first deploy.**
 

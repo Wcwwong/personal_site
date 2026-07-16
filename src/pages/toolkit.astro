@@ -81,4 +81,42 @@ import Base from "../layouts/Base.astro";
       </article>
     </div>
   </section>
+
+  <section aria-labelledby="safety-title">
+    <div class="sec-head">
+      <h2 id="safety-title">The safety layer</h2>
+    </div>
+    <div class="page-stack">
+      <article class="page-card">
+        <h3>Rules the model can't override</h3>
+        <p>
+          Every agent on my machine runs behind a deterministic guard: a pre-execution hook
+          that checks each action against a fixed rule set before it happens. The rules hold
+          even when the model is wrong, confused, or being manipulated, because the
+          enforcement sits outside the model instead of depending on it. The same rails are
+          mirrored to every agent I run, so switching tools never means losing the protections.
+        </p>
+      </article>
+      <article class="page-card">
+        <h3>External content is data, not instructions</h3>
+        <p>
+          Web pages, emails, files and scraped posts are things my agents read, never things
+          they obey. If fetched content says "run this command", it gets flagged and shown to
+          me, not followed. The rule earns its keep in practice: when a URL arrived with a
+          live login token embedded in it, the fetch was refused and the token rotated,
+          instead of the credential leaking into a third-party request.
+        </p>
+      </article>
+      <article class="page-card">
+        <h3>Remove the capability, don't trust the promise</h3>
+        <p>
+          Where the stakes are real, I take the ability away rather than rely on a rule. The
+          <a href="/projects/spot-grid-trading-bot/">grid bot's</a> key can sign orders but
+          not withdrawals. Advisory agents run with a file-only toolset, so placing a trade
+          isn't disobedience, it's impossible. And anything outward-facing, a publish, a
+          push, a message, waits for a human yes. Every time.
+        </p>
+      </article>
+    </div>
+  </section>
 </Base>

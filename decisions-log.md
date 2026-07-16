@@ -114,3 +114,17 @@
 - Fixed stale copy on `/projects` hero ("Real content will expand in Phase C") — Phase C is done.
 - **PUSHED + LIVE (2026-07-17, commit b64ffbf)** after Willy's review. Verified on production:
   project page renders, homepage stays 3 cards, /projects shows 4, stale copy confirmed gone.
+
+## 2026-07-17 — Safety layer published on /toolkit (not Projects, not a new section)
+
+- Willy asked where the system-wide security architecture belongs on the site. Decision:
+  a **"The safety layer" section on /toolkit** — it's a property of how everything runs, not a
+  shipped artifact (so not Projects), and one topic doesn't justify a 7th nav item.
+- Three cards: deterministic guard outside the model / external content = data not instructions
+  (with the sanitized login-token refusal story) / capability removal over trust (sign-only key,
+  file-only toolsets, human confirm on outward actions).
+- **Sanitization rule for this content:** principles and outcomes only — NEVER the guard's
+  location, implementation details, or what specifically is protected. Advertising the shape of
+  the defenses is fine; advertising their configuration is not.
+- Future expansion if it earns attention: a dedicated blog post.
+- Awaiting Willy's preview before commit/push (curation gate).

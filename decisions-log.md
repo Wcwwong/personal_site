@@ -101,3 +101,15 @@
   from `ewrthk20` (personal Gmail handle — privacy) to `wcwwong`. Not as clean as the intended
   `wcwwong.pages.dev`; custom domain later is the real fix (already planned).
 - Repo push already done (content + build). This just adds the deploy config.
+
+## 2026-07-17 — Added 4th project: Family Trip Bill Splitter
+
+- New project at `src/content/projects/family-trip-bill-splitter.md`, source verified against the
+  actual code at `C:\Users\user\.claude_app` (Google Apps Script + Gemini API, not a placeholder).
+- `featured: false` (deliberate) — homepage `.cards` grid is a fixed `repeat(3, 1fr)`; a 4th
+  featured card would leave 2 empty cells on its own row. Still shows fully on `/projects`
+  (`getProjects()` lists all non-draft projects regardless of `featured`).
+- Positioning: deliberately different provider (Gemini vs Claude/Codex elsewhere) — framed as
+  "pick the right tool, not vendor loyalty" per the multi-provider angle discussed with Willy.
+- Fixed stale copy on `/projects` hero ("Real content will expand in Phase C") — Phase C is done.
+- **UNCOMMITTED pending Willy's review** — curation gate applies to new content same as Phase C.
